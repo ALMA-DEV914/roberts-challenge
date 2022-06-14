@@ -1,11 +1,14 @@
 import React from 'react';
-import UserList from './components/UserList';
+import Dashboard from './components/Dashboard';
+import Homepage from './components/Homepage';
 
-
-function App() {
+function App(){
   return (
-    <UserList />
-  );
-}
+   <>
+       <Homepage/>
+        <Dashboard/>
+    </>
+   );
+};
 
 export default App;
