@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import UserCard from "../Profile";
+import ReactPaginate from "react-paginate";
 
+const PER_PAGE = 5;
 
 function Dashboard() {
+  const [currentPage, setCurrentPage] = useState(0)
   const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
   
@@ -29,6 +32,18 @@ function Dashboard() {
     setUsers(filteredUsers);
   }
 
+  function handlePageClick({selected: selectedPage}) {
+    console.log("selectedPage", selectedPage);
+    setCurrentPage(selectedPage)
+  }
+
+  const offset = currentPage * PER_PAGE;
+  const currentPageUsers = users.slice(offset, offset + PER_PAGE).map((user, index) =>  <UserCard 
+  key={index} 
+  userData={user}
+   />)
+
+   const pageCount = Math.ceil(users.length / PER_PAGE)
 
   return (
       
@@ -37,13 +52,20 @@ function Dashboard() {
     <h1>Ramdom Users Lists</h1>
       <input className="search-bar" onInput={filterUsers} placeholder="Search here...."/>
       </div>
-        {users.map((user, index) => (
-        <UserCard 
-        key={index} 
-        userData={user}
-         />
-         
-        ))}
+        {currentPageUsers}
+        <div>
+        <ReactPaginate 
+          previousLabel={" < Previous"}
+          nextLabel={"Next >"}
+          pageCount={pageCount}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          previousLinkClassName={"pagination_link"}
+          nextLinkClassName={"pagination_link"}
+          disabledClassName={"pagiantion_disabled"}
+          activeClassName={"pagiantion_active"}
+          />
+        </div>
     </div>
   );
 }
