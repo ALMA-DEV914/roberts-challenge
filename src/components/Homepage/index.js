@@ -1,18 +1,20 @@
 import React from "react";
+import Nav from "../Nav";
+import Footer from "../Footer";
 
 function Homepage(){
     return (
-        <div className="container p-3 my-3 bg-primary text-white">
-    <h1>Welcome to the Users Account</h1>
-    <p>This app will let you explore and have a chance to expand your connections.</p>
-    <nav className="navbar navbar-expand-sm bg-light">
-    <div class="d-inline-flex p-3 bg-secondary text-white">
-  <div class="p-2 bg-info">Flex item 1</div>
-  <div class="p-2 bg-warning">Flex item 2</div>
-  <div class="p-2 bg-primary">Flex item 3</div>
+        <>
+    <div className="container p-3 my-3 bg-primary text-white home">
+      <h1>Welcome to the Random Users Generator</h1>
+      <p>This app aim to generate a random users from an API.</p>
+      <Nav />
 </div>
-</nav>
+   <div className="col-6 mx-auto home-hero ">
+    <iframe src="https://giphy.com/embed/Squ2hNn2abnQPRdDMY" width="480" height="480" frameBorder="0" className="giphy-embed" title="gif" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/aclamguitars-aclam-aclamfoto-feelthinkplay-Squ2hNn2abnQPRdDMY" className="text-white">Think, Build, and Deploy</a></p> 
 </div>
+<Footer/>
+      </>
     )
 }
 export default Homepage;

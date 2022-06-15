@@ -3,9 +3,42 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80');
+  background-size: cover;
 }
 .search-bar{
     width: 100%;
     padding: 8px;
 }
-
+.rounded-circle{
+    border: 10px solid white;
+}
+.current-page{
+    margin-top: 15%;
+    padding: 15px;
+    box-shadow: 4px 4px 4px 4px white;
+}
+.pagination{
+   margin: 0 auto;
+   background: white;
+   justify-content: center;
+   padding: 8px;
+}
+.pagination_link{
+    background: green;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 12px;
+    
+}
+.pagination_link:hover{
+    color: black;
+    background: lightblue;
+}
+.home-hero{
+    margin-top: 7%;
+    text-align: center;
+}
+.p-2{
+    float: right;
+}
