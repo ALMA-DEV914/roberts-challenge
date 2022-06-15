@@ -49,7 +49,7 @@ const Dashboard = () => {
   return (
     <>
   <div className="container dashboard">
-    <div class="container p-3 my-2 bg-dark text-white">
+    <div className="container p-3 my-2 bg-dark text-white">
     <h1>Ramdom Users Lists</h1>
       <input className="search-bar" onInput={filterUsers} placeholder="Search here...."/>
       </div>

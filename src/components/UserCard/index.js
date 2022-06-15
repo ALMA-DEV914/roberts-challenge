@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import {FaEnvelope, FaPhone} from 'react-icons/fa'
 
-const UserCard = ({ userData }) => {
+const User = ({ userData }) => {
   const {name: {title, first, last},
    email, phone, dob: {date, age}, picture:{large}} = userData;
 
@@ -17,15 +17,15 @@ const UserCard = ({ userData }) => {
     </div>
     <div className="col-sm-8 text-white bg-dark">
     <div className="card-body">
-    <h2 className='text-warning'>{title}.{first} {last}</h2>
+    <h2 className='text-warning'>{title}. {first} {last}</h2>
       <p className="card-title"><span className='text-info'>Date of birth:</span> {moment(`${date}`).format("MMMM Do YYYY")}</p>
       <p><span className='text-info'>Age:</span> {age}</p>
       <p><FaEnvelope className='text-info'/> {email}</p>
       <p><FaPhone className='text-info'/> {phone}</p>
+
       <Address userData={userData}/>
       <Link to="/profile"><button className='bg-info text-white p-2'>See Profile</button></Link>
      </div>
-      
     </div>
   </div>
 </div>
@@ -34,4 +34,4 @@ const UserCard = ({ userData }) => {
     )
 };
 
-export default UserCard;
+export default User;

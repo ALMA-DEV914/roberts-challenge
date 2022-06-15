@@ -15,7 +15,7 @@ const Homepage = () => {
    <div className="my-4">
     <iframe src={hero} width="480" height="280" frameBorder="0" className="giphy-embed" title="gif" allowFullScreen></iframe><br></br>
     <h3 className="text-white">“Connecting with others gives us a sense of inclusion, connection, interaction, safety, and community. Your vibe attracts your tribe, so if you want to attract positive and healthy relationships, be one! Staying connected and getting reconnected feeds the flow of goodness which empowers our humanity.”
-<span className="text-warning"> - Susan C. Young</span></h3>
+   <span className="text-warning"> - Susan C. Young</span></h3>
    </div>
 </div><br></br>
 <Footer/>
