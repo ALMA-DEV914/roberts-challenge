@@ -1,6 +1,6 @@
 import React from "react";
 
-const Address = ({ userData }) => {
+function Address({ userData }) {
     const {location:{street:{number, name}, city, state, country, postcode, timezone:{offset, description}}} = userData;
 
     return <div className="address">

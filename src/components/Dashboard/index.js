@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import UserCard from "../UserCard";
 import ReactPaginate from "react-paginate";
+import Footer from "../Footer";
 
 const PER_PAGE = 1;
 
@@ -48,7 +49,7 @@ function Dashboard() {
   return (
     <>
   <div className="container dashboard">
-    <div class="container p-3 my-3 bg-dark text-white">
+    <div class="container p-3 my-2 bg-dark text-white">
     <h1>Ramdom Users Lists</h1>
       <input className="search-bar" onInput={filterUsers} placeholder="Search here...."/>
       </div>
@@ -68,8 +69,8 @@ function Dashboard() {
           activeClassName={"pagination_active"}
           />
         </div>
-    </div>
-    
+    </div><br></br>
+    <Footer/>
     </>
   );
 }
