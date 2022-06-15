@@ -1,9 +1,13 @@
 import React from "react";
+import {FaLinkedin, FaSlack,  FaGithub} from 'react-icons/fa'
 
 function Footer(){
     return(
-        <div className="container p-3 bg-dark text-white text-center">
-            <h5>The best thing about a boolean is even if you are wrong, you are only off by a bit.</h5><p>Created by Amlma Braun@2022</p>
+        <div className="container-fluid bg-dark opacity-50 text-white p-3  text-center">
+            <FaLinkedin  className="icon"/>
+            <FaSlack className="icon" />
+            <FaGithub  className="icon"/>
+            <p>Created by Alma Braun@2022</p>
         </div>
     )
 }

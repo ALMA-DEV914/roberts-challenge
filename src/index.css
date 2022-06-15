@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', sans-serif;
+    font-size: large;
+}
 
 body{
     font-family: 'Roboto', sans-serif;
     background-image: url('https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80');
-  background-size: cover;
+     background-size: cover;
 }
 .search-bar{
     width: 100%;
@@ -36,9 +42,13 @@ body{
     background: lightblue;
 }
 .home-hero{
-    margin-top: 7%;
-    text-align: center;
+    margin-top: 5%;
 }
 .p-2{
     float: right;
 }
+.icon{
+    font-size: 2rem;
+    margin: 5px;
+}
+

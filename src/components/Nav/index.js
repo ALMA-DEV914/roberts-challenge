@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 function Nav () {
 //render the page section
   return (
-    <div className="container">
+    <div className="container opacity-75">
     <nav className="navbar navbar-expand-sm bg-light">
-    <div className="d-inline-flex p-3 bg-secondary text-white">
+    <div className="d-inline-flex p-1 bg-secondary text-white">
       
     <Link to="/"><button 
           className="p-2 bg-info navActive"

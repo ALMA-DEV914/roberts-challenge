@@ -1,18 +1,23 @@
 import React from "react";
 import Nav from "../Nav";
 import Footer from "../Footer";
+import hero from '../../assets/giphy.gif';
 
 function Homepage(){
     return (
         <>
-    <div className="container p-3 my-3 bg-primary text-white home">
+    <div className="container p-1 my-3 bg-primary text-white home">
       <h1>Welcome to the Random Users Generator</h1>
       <p>This app aim to generate a random users from an API.</p>
       <Nav />
 </div>
-   <div className="col-6 mx-auto home-hero ">
-    <iframe src="https://giphy.com/embed/Squ2hNn2abnQPRdDMY" width="480" height="480" frameBorder="0" className="giphy-embed" title="gif" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/aclamguitars-aclam-aclamfoto-feelthinkplay-Squ2hNn2abnQPRdDMY" className="text-white">Think, Build, and Deploy</a></p> 
-</div>
+   <div className="col-lg-8 col-sm-12 d-flex flex-row   mx-auto text-center  home-hero ">
+   <div className="my-4">
+    <iframe src={hero} width="480" height="280" frameBorder="0" className="giphy-embed" title="gif" allowFullScreen></iframe><br></br>
+    <h3 className="text-white">“Connecting with others gives us a sense of inclusion, connection, interaction, safety, and community. Your vibe attracts your tribe, so if you want to attract positive and healthy relationships, be one! Staying connected and getting reconnected feeds the flow of goodness which empowers our humanity.”
+<span className="text-warning"> - Susan C. Young</span></h3>
+   </div>
+</div><br></br>
 <Footer/>
       </>
     )
