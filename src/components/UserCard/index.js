@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import {FaEnvelope, FaPhone} from 'react-icons/fa'
 
-function UserCard ({ userData }){
+const UserCard = ({ userData }) => {
   const {name: {title, first, last},
    email, phone, dob: {date, age}, picture:{large}} = userData;
 

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //function to create Nav components
-function Nav () {
+const Nav = () => {
 //render the page section
   return (
     <div className="container opacity-75">

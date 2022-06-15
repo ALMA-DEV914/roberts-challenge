@@ -5,7 +5,7 @@ import Footer from "../Footer";
 
 const PER_PAGE = 1;
 
-function Dashboard() {
+const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(0)
   const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);

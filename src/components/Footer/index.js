@@ -1,7 +1,7 @@
 import React from "react";
 import {FaLinkedin, FaSlack,  FaGithub} from 'react-icons/fa'
 
-function Footer(){
+const Footer = () => {
     return(
         <div className="container-fluid bg-dark opacity-50 text-white p-3  text-center">
             <FaLinkedin  className="icon"/>

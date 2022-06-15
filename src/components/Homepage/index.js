@@ -3,7 +3,7 @@ import Nav from "../Nav";
 import Footer from "../Footer";
 import hero from '../../assets/giphy.gif';
 
-function Homepage(){
+const Homepage = () => {
     return (
         <>
     <div className="container p-1 my-3 bg-primary text-white home">
