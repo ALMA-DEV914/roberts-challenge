@@ -2,7 +2,6 @@ import React,{ useState, useEffect } from "react";
 import User from "./UserLists";
 import ReactPaginate from "react-paginate";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
 
 const PER_PAGE = 1;
 
@@ -57,8 +56,6 @@ useEffect(() => {
       </div>
       <div className="current-page">
       {currentPageUsers}
-      
-      <Link to="/profile"><button className="p-1">SEE PROFILE</button></Link>
       </div>
       <div>
         <ReactPaginate 
