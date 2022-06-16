@@ -1,59 +1,63 @@
-import React, {useEffect, useState} from "react";
-import Footer from "./Footer";
-import Address from "./UserAddress";
-import User from "./UserLists";
-import moment from "moment";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectedUser,
+} from "../redux/actions/userActions";
 
-const Profile = () => {
-     const [user, setUser] = useState([]);
+const UserDetails = () => {
 
-    useEffect(() => {
-        (async (uuid) => {
-          let userData;
-          try {
-            const response = await fetch(`https://randomuser.me/api/?results=${uuid}`);
-            userData = await response.json();
-          } catch (error) {
-            console.log(error);
-            userData = [];
-          }
-        console.log(userData.results)  
-        setUser(userData.results);
-        })();
-      }, []);
+  const { userIndex } = useParams();
+  let user = useSelector((state) => state.user);
+  const { picture, title, email, phone, gender } = user;
+  const dispatch = useDispatch();
 
-   
-const profilePage = user.map((user) => <div className="user-info mt-4 d-flex" key={user.login.uuid}>
-<div className="col-md-8 information">
-    <User userData={user}/><br></br>
-    <Address userData={user}/>
-    <p><span className='text-info'>Coordinates: </span> {user.location.coordinates.latitude} - {user.location.coordinates.longitude}</p>
-    <p><span className='text-info'>Contact Option Cell: </span> {user.cell}</p>
-    <p><span className='text-info'>Username:</span> {user.login.username}</p>
-    <p><span className='text-info'>ID: </span> {user.id.name} - {user.id.value}</p>
-    <p><span className='text-info'>Date of Registration: </span>{moment(`${user.registered.date}`).format("MMMM Do YYYY")} at {user.registered.age} </p>
-   </div>
-  <div className="col-sm-5">
-    <img src={user.picture.large} alt="user-profile" className="card-img-top rounded-circle"/>
-    </div>
+  const fetchUserDetail = async (index) => {
+    const response = await axios
+      .get(`https://randomuser.me/api/?results=${index}`)
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+    dispatch(selectedUser(response.data));
+  };
 
-</div>
-)
+  useEffect(() => {
+    fetchUserDetail()
+  }, [userIndex]);
 
-return (
-      <>
-<div className="container p-3 my-2 text-white text-center">
-   <h1 className="p-3">User Profile</h1>
-      <div className="profile-page">
-      {profilePage}
+  return (
+    <div className="ui grid container">
+      {Object.keys(user).length === 0 ? (
+        <div>...Loading</div>
+      ) : (
+        <div className="ui placeholder segment">
+          <div className="ui two column stackable center aligned grid">
+            <div className="ui vertical divider">AND</div>
+            <div className="middle aligned row">
+              <div className="column lp">
+                <img className="ui fluid image" src={picture} alt={title} />
+              </div>
+              <div className="column rp">
+                <h1>{title}</h1>
+                <h2>
+                  <p className="ui teal tag label">{email}</p>
+                </h2>
+                <h3 className="ui brown block header">{gender}</h3>
+                <p>{phone}</p>
+                <div className="ui vertical animated button" tabIndex="0">
+                  <div className="hidden content">
+                    <i className="shop icon"></i>
+                  </div>
+                  <div className="visible content">Add to Cart</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      <div>
+      )}
     </div>
-    </div>
-    <br></br>
-    <Footer/>
-   </>
   );
-}
+};
 
-export default Profile;
+export default UserDetails;

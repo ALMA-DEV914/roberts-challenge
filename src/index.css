@@ -51,4 +51,6 @@ body{
     font-size: 2rem;
     margin: 5px;
 }
-
+.profile-link{
+    float: right;
+}

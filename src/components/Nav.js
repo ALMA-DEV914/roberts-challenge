@@ -17,7 +17,7 @@ const Nav = () => {
       <Link to="/dashboard" ><button className= "p-2 bg-warning navActive" >DASHBORD</button>
       </Link>
 
-      <Link to="/profile"><button className= "p-2 bg-primary navActive">PROFILE</button></Link>
+      <Link to="/profile/userId"><button className= "p-2 bg-primary navActive">PROFILE</button></Link>
        </div>
     </nav>
     </div>
