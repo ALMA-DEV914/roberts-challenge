@@ -22,7 +22,7 @@ return (
   <div className="row">
     <div className="col-sm-4">
     <img className="card-img-top rounded-circle" src={large} alt="user-profile"/>
-      <hr className="d-m-2 bg-white"/>
+
     </div>
     <div className="col-sm-8 text-white bg-dark">
     <div className="card-body">

@@ -22,7 +22,7 @@ body{
 .current-page{
     margin-top: 12%;
     padding: 15px;
-    box-shadow: 4px 4px 4px 4px white;
+    
 }
 .pagination{
    margin: 0 auto;
@@ -31,15 +31,15 @@ body{
    padding: 8px;
 }
 .pagination_link{
-    background: green;
+    background: rgb(11, 96, 124);
     color: white;
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 8px 24px;
+    border-radius: 5px;
     
 }
 .pagination_link:hover{
     color: white;
-    background: rgb(11, 96, 124);
+    background: black;
 }
 .home-hero{
     margin-top: 5%;
@@ -50,7 +50,4 @@ body{
 .icon{
     font-size: 2rem;
     margin: 5px;
-}
-.profile-link{
-    float: right;
 }

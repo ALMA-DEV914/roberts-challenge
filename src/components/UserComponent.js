@@ -11,8 +11,7 @@ const Dashboard = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
   
-
-  useEffect(() => {
+useEffect(() => {
     (async () => {
       let userData;
       try {
@@ -47,7 +46,6 @@ const Dashboard = () => {
   userData={user}
    />)
 
-   let id = currentPage;
    const pageCount = Math.ceil(users.length / PER_PAGE)
 
   return (
@@ -59,8 +57,9 @@ const Dashboard = () => {
       </div>
       <div className="current-page">
       {currentPageUsers}
-      <Link to="/profile"><button className="p-1 mx-auto">SEE PROFILE</button></Link>
-        </div>
+      
+      <Link to="/profile"><button className="p-1">SEE PROFILE</button></Link>
+      </div>
       <div>
         <ReactPaginate 
           previousLabel={"< Previous"}
