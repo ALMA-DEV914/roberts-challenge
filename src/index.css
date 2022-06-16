@@ -38,8 +38,8 @@ body{
     
 }
 .pagination_link:hover{
-    color: black;
-    background: lightblue;
+    color: white;
+    background: rgb(11, 96, 124);
 }
 .home-hero{
     margin-top: 5%;

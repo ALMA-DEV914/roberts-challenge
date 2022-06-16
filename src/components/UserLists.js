@@ -1,7 +1,5 @@
 import React from 'react';
-import Address from '../Location';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
 import {FaEnvelope, FaPhone} from 'react-icons/fa'
 
 const User = ({ userData }) => {
@@ -15,6 +13,8 @@ const User = ({ userData }) => {
       "years"
     )
     .diff(moment().format("YYYY-MM-DD"), "days") + ' days)');
+
+    
 
    return (
   <>
@@ -32,9 +32,7 @@ const User = ({ userData }) => {
       <p><span className='text-info'>Age:</span> {age}</p>
       <p><FaEnvelope className='text-info'/> {email}</p>
       <p><FaPhone className='text-info'/> {phone}</p>
-
-      <Address userData={userData}/>
-      <Link to="/profile"><button className='bg-info text-white p-2'>See Profile</button></Link>
+      
      </div>
     </div>
   </div>

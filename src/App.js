@@ -1,7 +1,8 @@
 import React from 'react';
-import Dashboard from './components/Dashboard';
 import Homepage from './components/Homepage';
-import Profile from './components/Profile';
+import Profile from './components/UserProfile';
+import User from './components/UserLists';
+import Dashboard from './components/UserComponent';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App(){
@@ -12,7 +13,8 @@ function App(){
         <Route path="/" element={<Homepage />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path='/profile/' element={<Profile/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile/:uuid' element={<User/>}/>
       </Routes>
     </Router>
 

@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from "react";
-import UserCard from "../UserCard";
+import User from "./UserLists";
 import ReactPaginate from "react-paginate";
-import Footer from "../Footer";
+import Footer from "./Footer";
 
 const PER_PAGE = 1;
 
@@ -21,7 +21,7 @@ const Dashboard = () => {
         console.log(error);
         userData = [];
       }
-      console.log(userData.results)
+       
       setAllUsers(userData.results);
       setUsers(userData.results);
     })();
@@ -33,13 +33,15 @@ const Dashboard = () => {
     setUsers(filteredUsers);
   }
 
+
   function handlePageClick({selected: selectedPage}) {
     console.log("selectedPage", selectedPage);
     setCurrentPage(selectedPage)
   }
+  
 
   const offset = currentPage * PER_PAGE;
-  const currentPageUsers = users.slice(offset, offset + PER_PAGE).map((user, index) => <UserCard 
+  const currentPageUsers = users.slice(offset, offset + PER_PAGE).map((user, index) => <User 
   key={index} 
   userData={user}
    />)

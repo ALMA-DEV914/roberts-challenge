@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "../Nav";
-import Footer from "../Footer";
-import hero from '../../assets/giphy.gif';
+import Nav from "./Nav";
+import Footer from "./Footer";
+import hero from '../assets/giphy.gif';
 
 const Homepage = () => {
     return (
