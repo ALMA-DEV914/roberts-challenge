@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 const UserComponent = () => {
   const users = useSelector((state) => state.allUsers.users);
 
-  const userList = users.map((user, index) => {
-    const { name: {title, first, last}, picture: {large}, gender, email, phone } = user;
+  const userList = users.map((user) => {
+    const {id, name: {title, first, last}, picture: {large},  email, phone } = user;
 
     return (
-      <div className="four wide column" key={index}>
-        <Link to={`/user/${index}`}>
+      <div className="four wide column" key={id}>
+        <Link to={`/user/${id}`}>
           <div className="ui link cards">
             <div className="card">
               <div className="image">
@@ -28,8 +28,7 @@ const UserComponent = () => {
     );
   });
 
-  return <>
-  {userList}</>;
+  return <>{userList}</>;
 };
 
 export default UserComponent;

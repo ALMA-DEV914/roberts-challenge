@@ -7,15 +7,14 @@ import {
 } from "../redux/actions/userActions";
 
 const UserDetails = () => {
-
-  const { userIndex } = useParams();
+   const { userId } = useParams();
   let user = useSelector((state) => state.user);
   const { picture, title, email, phone, gender } = user;
   const dispatch = useDispatch();
 
-  const fetchUserDetail = async (index) => {
+  const fetchUserDetail = async (id) => {
     const response = await axios
-      .get(`https://randomuser.me/api/?results=${index}`)
+      .get(`https://randomuser.me/api/?results=${id}`)
       .catch((err) => {
         console.log("Err: ", err);
       });
@@ -23,8 +22,8 @@ const UserDetails = () => {
   };
 
   useEffect(() => {
-    fetchUserDetail()
-  }, [userIndex]);
+    fetchUserDetail();
+  }, [userId]);
 
   return (
     <div className="ui grid container">
