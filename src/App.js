@@ -1,7 +1,7 @@
 import React from 'react';
 import Homepage from './components/Homepage';
-import UserDetails from './components/UserProfile';
-import ProfilePage from './components/UserLists';
+import Profile from './components/UserProfile';
+import Dashboard from './components/UserComponent';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App(){
@@ -11,8 +11,9 @@ function App(){
     <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/homepage" element={<Homepage />} />
-        <Route path="/dashboard" element={<ProfilePage />} />
-        <Route path='/user/:userId' element={<UserDetails/>}/>
+        <Route path="/dashboard" element={< Dashboard/>} />
+        <Route path='/profile' element={<Profile/>}/>
+      
         </Routes>
     </Router>
 

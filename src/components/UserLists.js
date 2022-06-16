@@ -1,33 +1,45 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setUsers } from "../redux/actions/userActions";
-import UserComponent from "./UserComponent";
+import React from 'react';
+import moment from 'moment';
+import {FaEnvelope, FaPhone} from 'react-icons/fa'
 
-const ProfilePage = () => {
-  const users = useSelector((state) => state.allUsers.users);
-  const dispatch = useDispatch();
+const User = ({ userData }) => {
 
-  const fetchUsers = async () => {
-    const response = await axios
-      .get("https://randomuser.me/api/?results=100")
-      .catch((err) => {
-        console.log("Err: ", err);
-      });
-    dispatch(setUsers(response.data));
-  };
+  const {name: {title, first, last},
+   email, phone, dob: {date, age}, picture:{large}} = userData;
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  let daysLeft = ( 'Birthday on ' + moment(date).format("D MMM") + ' (in ' +
+    moment(moment(date))
+    .add(
+      moment(moment().format("YYYY-MM-DD")).diff(moment(date), "years") + 1,
+      "years"
+    )
+    .diff(moment().format("YYYY-MM-DD"), "days") + ' days)');
 
-  console.log("Users :", users);
-
-  return (
-    <div className="ui grid container">
-     <UserComponent/>
+    
+return (
+  <>
+  <div className="container">
+  <div className="row">
+    <div className="col-sm-4">
+    <img className="card-img-top rounded-circle" src={large} alt="user-profile"/>
+      <hr className="d-m-2 bg-white"/>
     </div>
-  );
+    <div className="col-sm-8 text-white bg-dark">
+    <div className="card-body">
+    <h2 className='text-warning'>{title}. {first} {last}</h2>
+      <p className="card-title"><span className='text-info'>Date of birth:</span> {moment(`${date}`).format("MMMM Do YYYY")}</p>
+      <p className='text-info'>{daysLeft}</p>
+      <p><span className='text-info'>Age:</span> {age}</p>
+      <p><FaEnvelope className='text-info'/> {email}</p>
+      <p><FaPhone className='text-info'/> {phone}</p>
+      
+     </div>
+    </div>
+  </div>
+</div>
+  </>
+  
+    )
 };
 
-export default ProfilePage;
+export default User;
