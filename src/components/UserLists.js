@@ -18,7 +18,7 @@ const User = ({ userData }) => {
     
 return (
   <>
-  <div className="container">
+  <div className="container opacity-80">
   <div className="row">
     <div className="col-sm-4">
     <img className="card-img-top rounded-circle" src={large} alt="user-profile"/>

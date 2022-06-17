@@ -1,10 +1,10 @@
 import React,{ useState, useEffect } from "react";
-import User from "./UserLists";
+import User from "../components/UserLists";
 import ReactPaginate from "react-paginate";
-import Footer from "./Footer";
-import ExtraDetails from "./ExtraDetails";
-import Address from "./UserAddress";
-
+import Footer from "../components/Footer";
+import ExtraDetails from "../components/ExtraDetails";
+import Address from "../components/UserAddress";
+import Nav from "../components/Nav";
 
 const PER_PAGE = 1;
 
@@ -85,11 +85,13 @@ const moreDetails = users.slice(offset, offset + PER_PAGE).map((user, index) => 
 
 return (
     <>
-  <div className="container dashboard">
-    <div className="container p-3 my-2 bg-dark text-white">
-    <h1>Ramdom Users Lists</h1>
-      <input className="search-bar" onInput={filterUsers} placeholder="Search here...."/>
+<div className="container">
+  <div className="container p-3 my-2 text-white">
+ <h1>Ramdom Users Lists</h1>
+    <Nav/>
+    <input className="search-bar" onInput={filterUsers} placeholder="Search here...."/>
       </div>
+
       <div className="current-page">
       {currentPageUsers}
 
