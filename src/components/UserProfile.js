@@ -5,6 +5,7 @@ import { USER_KEY } from "../redux/reducers/usersReducers";
 import moment from "moment";
 import User from "./UserLists";
 import Address from "./UserAddress";
+import Footer from "./Footer";
 
 const UserApp = () => {
   // initialize dispatch
@@ -45,7 +46,7 @@ return (
                            <>
                     <div className="user-info mt-4 d-flex">
                     <div className="col-md-8 information">
-                    <User userData={user}/>
+                        <User userData={user}/><br></br>
                         <Address userData={user}/>
                                 <p><span className='text-info'>Coordinates: </span> {user.location.coordinates.latitude} - {user.location.coordinates.longitude}</p>
                                 <p><span className='text-info'>Contact Option Cell: </span> {user.cell}</p>
@@ -70,6 +71,7 @@ return (
               )}
             </div>
           </div>
+          <Footer/>
     </React.Fragment>
   );
 };
