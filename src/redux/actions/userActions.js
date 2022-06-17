@@ -1,23 +1,20 @@
-import { LOAD_DATA_REQUEST,
+import {
+  LOAD_DATA_REQUEST,
   LOAD_DATA_SUCCESS,
-  LOAD_DATA_FAILURE  } from "../constants/actionTypes"
+  LOAD_DATA_FAILURE,
+} from "../constants/actionTypes";
 
-import Axios from "axios"
+import Axios from "axios";
 
-export const loadData = () =>{
-return async (dispatch) =>{
- try{
-     dispatch({type: LOAD_DATA_REQUEST})
-     let dataURL = 'https://randomuser.me/api/'
-     let response = await Axios.get(dataURL)
-     dispatch({type: LOAD_DATA_SUCCESS, payload:response.data})
- }
- catch(error){
-     dispatch({type:LOAD_DATA_FAILURE, payload: error})
- }
-}
-}
-
-
-
-
+export const loadData = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: LOAD_DATA_REQUEST });
+      let dataURL = "https://randomuser.me/api/";
+      let response = await Axios.get(dataURL);
+      dispatch({ type: LOAD_DATA_SUCCESS, payload: response.data });
+    } catch (error) {
+      dispatch({ type: LOAD_DATA_FAILURE, payload: error });
+    }
+  };
+};
