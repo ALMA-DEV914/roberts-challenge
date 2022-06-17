@@ -2,6 +2,9 @@ import React,{ useState, useEffect } from "react";
 import User from "./UserLists";
 import ReactPaginate from "react-paginate";
 import Footer from "./Footer";
+import ExtraDetails from "./ExtraDetails";
+import Address from "./UserAddress";
+
 
 const PER_PAGE = 1;
 
@@ -9,6 +12,7 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(0)
   const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
+  const [show, setShow] = useState(false)
   
 useEffect(() => {
     (async () => {
@@ -32,22 +36,54 @@ useEffect(() => {
     setUsers(filteredUsers);
   }
 
-
-  function handlePageClick({selected: selectedPage}) {
+function handlePageClick({selected: selectedPage}) {
     console.log("selectedPage", selectedPage);
     setCurrentPage(selectedPage)
-  }
-  
+  };
 
   const offset = currentPage * PER_PAGE;
   const currentPageUsers = users.slice(offset, offset + PER_PAGE).map((user, index) => <User 
   key={index} 
   userData={user}
-   />)
+   />
+)
+const pageCount = Math.ceil(users.length / PER_PAGE);
 
-   const pageCount = Math.ceil(users.length / PER_PAGE)
+const userAdd = users.slice(offset, offset + PER_PAGE).map((user, index) => <Address key={index} userData={user}/>);
 
-  return (
+const moreDetails = users.slice(offset, offset + PER_PAGE).map((user, index) => <ExtraDetails key={index} userData={user}/>)
+
+  const Modal = props => {
+    if(!props.show){
+        return null
+    }
+    return (
+     <div className="container fluid mt-3">
+        <div className="modal bg-white">
+          <div className="modal-body">
+              {currentPageUsers}<br></br>
+    
+        <div className=" container modal-text d-flex mx-auto text-left">
+          <div className="col-md-4">
+            <h5>EXTRA DETAILS</h5>
+        {moreDetails}
+        </div>
+        <div className="extra-details col-6">
+          <h5>ADDRESS</h5>
+              {userAdd}
+              </div>
+            </div>
+             <div className="modal-footer">
+                  <button className="button" onClick={props.onClose}>CLOSE</button>
+            </div>
+          </div>
+      </div>
+      </div>
+       
+    )
+}
+
+return (
     <>
   <div className="container dashboard">
     <div className="container p-3 my-2 bg-dark text-white">
@@ -56,9 +92,12 @@ useEffect(() => {
       </div>
       <div className="current-page">
       {currentPageUsers}
+
+    <div className="show-profile">
+      <button className="m-2 mx-auto col-lg-4" onClick={() => setShow(true)}>VIEW PROFILE</button>
       </div>
-      <div>
-        <ReactPaginate 
+    
+     <ReactPaginate
           previousLabel={"< Previous"}
           nextLabel={"Next >"}
           pageCount={pageCount}
@@ -70,7 +109,9 @@ useEffect(() => {
           activeClassName={"pagination_active"}
           />
         </div>
-    </div><br></br>
+      </div>
+  
+    <Modal onClose={() => setShow(false)} show={show}/>
     <Footer/>
     </>
   );

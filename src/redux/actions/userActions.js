@@ -1,15 +1,23 @@
-import { ActionTypes } from "../constants/actionTypes";
+import { LOAD_DATA_REQUEST,
+  LOAD_DATA_SUCCESS,
+  LOAD_DATA_FAILURE  } from "../constants/actionTypes"
 
-export const setUsers = users => {
- return {
-    type: ActionTypes.SET_USERS,
-    payload: users,
-  };
-};
+import Axios from "axios"
 
-export const selectedUser = user => {
-  return{
-    type: ActionTypes.SELECTED_USER,
-    payload: user,
-  };
-};
+export const loadData = () =>{
+return async (dispatch) =>{
+ try{
+     dispatch({type: LOAD_DATA_REQUEST})
+     let dataURL = 'https://randomuser.me/api/'
+     let response = await Axios.get(dataURL)
+     dispatch({type: LOAD_DATA_SUCCESS, payload:response.data})
+ }
+ catch(error){
+     dispatch({type:LOAD_DATA_FAILURE, payload: error})
+ }
+}
+}
+
+
+
+

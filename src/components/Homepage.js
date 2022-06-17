@@ -6,7 +6,7 @@ import hero from '../assets/giphy.gif';
 const Homepage = () => {
     return (
         <>
-    <div className="container p-1 my-3 bg-primary text-white home">
+<div className="container p-1 my-3 bg-primary text-white home">
       <h1>Welcome to the Random Users Generator</h1>
       <p>This app aim to generate a random users from an API.</p>
       <Nav />

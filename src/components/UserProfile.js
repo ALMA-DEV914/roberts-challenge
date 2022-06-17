@@ -1,58 +1,78 @@
-import React, { useEffect, useState } from "react";
-import Footer from "./Footer";
-import Address from "./UserAddress";
-import User from "./UserLists";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadData } from "../redux/actions/userActions";
+import { USER_KEY } from "../redux/reducers/usersReducers";
 import moment from "moment";
+import User from "./UserLists";
+import Address from "./UserAddress";
 
-const Profile = () => {
-     const [user, setUser] = useState([]);
+const UserApp = () => {
+  // initialize dispatch
+  let dispatch = useDispatch();
 
-    useEffect(() => {
-        (async (index) => {
-          let userData;
-          try {
-            const response = await fetch(`https://randomuser.me/api/?profile/${index}`);
-            userData = await response.json();
-          } catch (error) {
-            console.log(error);
-            userData = [];
-          }
-        console.log(userData.results)  
-        setUser(userData.results);
-        })();
-      }, []);
+  useEffect(() => {
+    dispatch(loadData());
+  }, []);
 
-   
-const profilePage = user.map((user) => <div className="user-info mt-4 d-flex">
-<div className="col-md-8 information">
-    <User userData={user}/><br></br>
-    <Address userData={user}/>
-    <p><span className='text-info'>Coordinates: </span> {user.location.coordinates.latitude} - {user.location.coordinates.longitude}</p>
-    <p><span className='text-info'>Contact Option Cell: </span> {user.cell}</p>
-    <p><span className='text-info'>Username:</span> {user.login.username}</p>
-    <p><span className='text-info'>ID: </span> {user.id.name} - {user.id.value}</p>
-    <p><span className='text-info'>Date of Registration: </span>{moment(`${user.registered.date}`).format("MMMM Do YYYY")} at {user.registered.age} </p>
-   </div>
-  <div className="col-sm-5">
-    <img src={user.picture.large} alt="user-profile" className="card-img-top rounded-circle"/>
-    </div>
-</div>
-)
+  // view data from store
+  let viewUser = useSelector((state) => {
+    return state[USER_KEY];
+  });
 
-return (
-      <>
-<div className="container p-3 my-2 text-white text-center">
-   <h1 className="p-3">User Profile</h1>
-      <div className="profile-page" key={user.index}>
-         {profilePage}
-       </div>
-      <div>
-    </div>
-    </div>
-    <br></br>
-    <Footer/>
-   </>
-  );
+//   button click
+let btnClick = () =>{
+    dispatch(loadData());
 }
 
-export default Profile;
+
+return (
+    <React.Fragment>
+      {/* <pre>{JSON.stringify(viewUser)}</pre> */}
+      <div className="container p-3 text-white text-center">
+        <div className="card-header">
+            <h2 className="font-weight-bold">RANDOM USER PROFILE APP</h2>
+            </div>
+         {/* body section */}
+            <div className="container">
+              {viewUser.loading === true ? (
+                <h1>Loading....</h1>
+              ) : (
+                <React.Fragment>
+                  {viewUser.data.length === 0 ? null : (
+                    <React.Fragment>
+                      {viewUser.data.results.map((user) => {
+                        return (
+                           <>
+                    <div className="user-info mt-4 d-flex">
+                    <div className="col-md-8 information">
+                    <User userData={user}/>
+                        <Address userData={user}/>
+                                <p><span className='text-info'>Coordinates: </span> {user.location.coordinates.latitude} - {user.location.coordinates.longitude}</p>
+                                <p><span className='text-info'>Contact Option Cell: </span> {user.cell}</p>
+                                <p><span className='text-info'>Username:</span> {user.login.username}</p>
+                                <p><span className='text-info'>ID: </span> {user.id.name} - {user.id.value}</p>
+                                <p><span className='text-info'>Date of Registration: </span>{moment(`${user.registered.date}`).format("MMMM Do YYYY")} at {user.registered.age} </p>
+                               </div>
+                            <div className="col-sm-5">
+                        <img src={user.picture.large} alt="user-profile" className="card-img-top rounded-circle"/>
+                                </div>
+                            </div>
+                       <div>
+                            <button className="btns" onClick={btnClick}>NEXT PROFILE</button>
+                              </div>
+
+                           </>
+                        );
+                      })}
+                    </React.Fragment>
+                  )}
+                </React.Fragment>
+              )}
+            </div>
+          </div>
+    </React.Fragment>
+  );
+};
+
+export default UserApp;
+

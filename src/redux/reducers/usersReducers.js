@@ -1,24 +1,39 @@
-import { ActionTypes } from "../constants/actionTypes";
+import { LOAD_DATA_REQUEST,
+  LOAD_DATA_SUCCESS,
+  LOAD_DATA_FAILURE  } from "../constants/actionTypes"
 
-const intialState = {
-  users: [],
-  };
+export const USER_KEY = 'userStore'
 
-export const usersReducer = (state = intialState, { payload, type}) => {
-  switch (type) {
-    case ActionTypes.SET_USERS:
-      return { ...state, 
-             users: payload};
-    default:
-      return state;
+let initialState = {
+  data:[],
+  loading:false,
+  errorMessage: ''
+}
+
+export const userReducer = (state = initialState, action) =>{
+  let {type, payload} = action
+  switch(type){
+      case LOAD_DATA_REQUEST:
+          return{
+              ...state,
+              loading:true
+          }
+          case LOAD_DATA_SUCCESS:
+          return{
+              ...state,
+              loading:false,
+              data:payload
+          }
+          case LOAD_DATA_FAILURE:
+          return{
+              ...state,
+              errorMessage:payload
+          }
+          default: return state
   }
-};
 
-export const selectedUsersReducer = (state = {}, { payload, type}) => {
-   switch (type) {
-    case ActionTypes.SELECTED_USER:
-      return { ...state, ...payload};
-    default:
-      return state;
-  }
-};
+}
+
+
+
+

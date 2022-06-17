@@ -1,10 +1,10 @@
 import React from 'react';
 import moment from 'moment';
-import {FaEnvelope, FaPhone} from 'react-icons/fa'
+import {FaEnvelope, FaPhone} from 'react-icons/fa';
+
 
 const User = ({ userData }) => {
-
-  const {name: {title, first, last},
+   const {name: {title, first, last},
    email, phone, dob: {date, age}, picture:{large}} = userData;
 
   let daysLeft = ( 'Birthday on ' + moment(date).format("D MMM") + ' (in ' +
@@ -22,8 +22,7 @@ return (
   <div className="row">
     <div className="col-sm-4">
     <img className="card-img-top rounded-circle" src={large} alt="user-profile"/>
-
-    </div>
+ </div>
     <div className="col-sm-8 text-white bg-dark">
     <div className="card-body">
     <h2 className='text-warning'>{title}. {first} {last}</h2>
@@ -32,7 +31,7 @@ return (
       <p><span className='text-info'>Age:</span> {age}</p>
       <p><FaEnvelope className='text-info'/> {email}</p>
       <p><FaPhone className='text-info'/> {phone}</p>
-      
+
      </div>
     </div>
   </div>

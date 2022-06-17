@@ -17,8 +17,15 @@ body{
     padding: 8px;
 }
 .rounded-circle{
-    border: 10px solid white;
+    border: 10px solid wheat;
+    
 }
+.card-body{
+    border: 10px solid white;
+    margin-top: 4%;
+    border-radius: 8px;
+}
+
 .current-page{
     margin-top: 12%;
     padding: 15px;
@@ -26,9 +33,10 @@ body{
 }
 .pagination{
    margin: 0 auto;
-   background: white;
+   background: bisque;
    justify-content: center;
    padding: 8px;
+   
 }
 .pagination_link{
     background: rgb(11, 96, 124);
@@ -39,7 +47,7 @@ body{
 }
 .pagination_link:hover{
     color: white;
-    background: black;
+    background: rgb(42, 40, 40);
 }
 .home-hero{
     margin-top: 5%;
@@ -50,4 +58,18 @@ body{
 .icon{
     font-size: 2rem;
     margin: 5px;
+}
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+button{
+    padding: 8px 16px;
 }
