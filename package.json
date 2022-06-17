@@ -2,7 +2,7 @@
   "name": "roberts-challenge",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ALMA-DEV914.github.io/roberts-challenge",
+  "homepage": "http://ALMA-DEV914.github.io/roberts-challenge",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -32,6 +32,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  
   },
   "eslintConfig": {
     "extends": [
