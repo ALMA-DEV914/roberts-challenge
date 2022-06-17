@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.b50b030d.css",
-    "main.js": "/static/js/main.f1998760.js",
-    "static/js/787.e5a8e85a.chunk.js": "/static/js/787.e5a8e85a.chunk.js",
-    "static/media/giphy.gif": "/static/media/giphy.645027a251858ef5dad3.gif",
-    "index.html": "/index.html",
-    "main.b50b030d.css.map": "/static/css/main.b50b030d.css.map",
-    "main.f1998760.js.map": "/static/js/main.f1998760.js.map",
-    "787.e5a8e85a.chunk.js.map": "/static/js/787.e5a8e85a.chunk.js.map"
+    "main.css": "/roberts-challenge/static/css/main.b50b030d.css",
+    "main.js": "/roberts-challenge/static/js/main.885eebb3.js",
+    "static/js/787.e5a8e85a.chunk.js": "/roberts-challenge/static/js/787.e5a8e85a.chunk.js",
+    "static/media/giphy.gif": "/roberts-challenge/static/media/giphy.645027a251858ef5dad3.gif",
+    "index.html": "/roberts-challenge/index.html",
+    "main.b50b030d.css.map": "/roberts-challenge/static/css/main.b50b030d.css.map",
+    "main.885eebb3.js.map": "/roberts-challenge/static/js/main.885eebb3.js.map",
+    "787.e5a8e85a.chunk.js.map": "/roberts-challenge/static/js/787.e5a8e85a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b50b030d.css",
-    "static/js/main.f1998760.js"
+    "static/js/main.885eebb3.js"
   ]
 }
