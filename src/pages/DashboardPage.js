@@ -24,7 +24,7 @@ const Dashboard = () => {
         console.log(error);
         userData = [];
       }
-     setAllUsers(userData.results);
+      setAllUsers(userData.results);
       setUsers(userData.results);
     })();
   }, []);

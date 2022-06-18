@@ -78,3 +78,13 @@ button{
 .btns{
     float: right;
 }
+.login{
+    margin-top: 10%;
+}
+form{
+    border: 1px solid white;
+}
+input{
+    width: 100%;
+    padding: 8px;
+}

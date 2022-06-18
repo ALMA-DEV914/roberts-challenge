@@ -1,13 +1,14 @@
 //import React
 import React from "react";
 import { Link } from "react-router-dom";
+import Login from "./Login";
 
 //function to create Nav components
 const Nav = () => {
   //render the page section
-  return (
-    <div className="container opacity-75">
-      <nav className="navbar navbar-expand-sm">
+  return(
+    <div className="container">
+      <nav className="navbar navbar-expand-sm d-flex justify-content-between">
         <div className="d-inline-flex  bg-secondary text-white">
           <Link to="/">
             <button className="p-1 bg-info navActive m-1">Home</button>
@@ -20,6 +21,12 @@ const Nav = () => {
           <Link to="/profile">
             <button className="p-1 m-1 bg-primary navActive">PROFILE</button>
           </Link>
+          </div>
+          <div className="bg-secondary">
+          <Link to='/login'>
+          <button className="p-1 m-1   navActive">LOGIN</button>
+          </Link>
+
         </div>
       </nav>
     </div>

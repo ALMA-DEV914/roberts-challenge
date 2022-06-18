@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import hero from "../assets/giphy.gif";
 
+
 const Homepage = () => {
   return (
     <>
@@ -13,7 +14,7 @@ const Homepage = () => {
           <Nav />
         </div>
       </div>
-      <div className="col-lg-8 col-sm-12 d-flex flex-row mx-auto text-center  home-hero ">
+      <div className="col-lg-8 col-sm-12 d-flex flex-row mx-auto text-center p-1  home-hero ">
         <div className="my-4">
           <iframe
             src={hero}

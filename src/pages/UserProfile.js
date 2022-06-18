@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadData } from "../redux/actions/userActions";
 import { USER_KEY } from "../redux/reducers/usersReducers";
@@ -17,11 +17,12 @@ useEffect(() => {
      dispatch(loadData());
  }, []);
 
- 
-  // view data from store
+ // view data from store
 const viewUser = useSelector((state) => {
-    return state[USER_KEY];
+  return state[USER_KEY];
+      
 });
+
 
 const btnClick = () =>{
     dispatch(loadData(viewUser))
