@@ -10,7 +10,7 @@ export const loadData = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: LOAD_DATA_REQUEST });
-      let dataURL = "https://randomuser.me/api/";
+      let dataURL = 'https://randomuser.me/api/';
       let response = await Axios.get(dataURL);
       dispatch({ type: LOAD_DATA_SUCCESS, payload: response.data });
     } catch (error) {

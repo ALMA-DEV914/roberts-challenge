@@ -24,8 +24,7 @@ const Dashboard = () => {
         console.log(error);
         userData = [];
       }
-
-      setAllUsers(userData.results);
+     setAllUsers(userData.results);
       setUsers(userData.results);
     })();
   }, []);
@@ -46,7 +45,8 @@ const Dashboard = () => {
   const offset = currentPage * PER_PAGE;
   const currentPageUsers = users
     .slice(offset, offset + PER_PAGE)
-    .map((user, index) => <User key={index} userData={user} />);
+    .map((user, index) => <User key={index} userData={user}/>);
+
   const pageCount = Math.ceil(users.length / PER_PAGE);
 
   const userAdd = users

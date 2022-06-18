@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadData } from "../redux/actions/userActions";
 import { USER_KEY } from "../redux/reducers/usersReducers";
@@ -8,24 +8,26 @@ import User from "../components/UserLists";
 import Address from "../components/UserAddress";
 import Footer from "../components/Footer";
 
+
 const UserProfile = () => {
-  // initialize dispatch
-  let dispatch = useDispatch();
+// initialize dispatch
+let dispatch = useDispatch();
+  
+useEffect(() => {
+     dispatch(loadData());
+ }, []);
 
-  useEffect(() => {
-    dispatch(loadData());
-  }, []);
-
+ 
   // view data from store
-  let viewUser = useSelector((state) => {
+const viewUser = useSelector((state) => {
     return state[USER_KEY];
-  });
+});
 
-  //   button click
-  let btnClick = () => {
-    dispatch(loadData());
-  };
-
+const btnClick = () =>{
+    dispatch(loadData(viewUser))
+    console.log(viewUser)
+}
+ 
   return (
     <>
       <div className="container p-3 text-white justify-content-center">
@@ -34,24 +36,24 @@ const UserProfile = () => {
           <Nav />
         </div>
         <br></br>
-        <div className="containe ">
-          {viewUser.loading === true ? (
+        <div className="container">
+          {viewUser.data.loading === true ? (
             <h1>Loading....</h1>
           ) : (
             <>
               {viewUser.data.length === 0 ? null : (
                 <>
-                  {viewUser.data.results.map((user) => {
+                  {viewUser.data.results.map((user, index) => {
                     return (
                       <>
-                        <div className="user-info mt-4 d-flex ">
+                        <div className="user-info mt-4 d-flex" key={index}>
                           <div className="col-md-8 information">
                             <div className="text-center">
-                              <User userData={user} />
+                              <User userData={user}/>
                             </div>
                             <br></br>
                             <div className="text-center">
-                              <Address userData={user} />
+                              <Address userData={user} key={index}/>
                             </div>
                             <div className="text-center">
                               {" "}
@@ -93,10 +95,12 @@ const UserProfile = () => {
                             />
                           </div>
                         </div>
-                        <br></br>
-                        <button className="btns" onClick={btnClick}>
-                          NEXT PROFILE
-                        </button>
+                        
+                        <div>
+                        <button className="btns" onClick={btnClick}>NEXT PROFILE</button>
+                        <button className="btns" onClick={btnClick} >PREV PROFILE</button>
+                      
+                       </div>
                       </>
                     );
                   })}

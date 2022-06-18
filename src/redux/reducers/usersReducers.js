@@ -14,7 +14,7 @@ export const userReducer = (state = initialState, action) =>{
   let {type, payload} = action
   switch(type){
       case LOAD_DATA_REQUEST:
-          return{
+        return{
               ...state,
               loading:true
           }
@@ -22,7 +22,7 @@ export const userReducer = (state = initialState, action) =>{
           return{
               ...state,
               loading:false,
-              data:payload
+               data: payload
           }
           case LOAD_DATA_FAILURE:
           return{

@@ -1,4 +1,4 @@
-import { userReducer, USER_KEY } from "./reducers/usersReducers";
+import { userReducer, USER_KEY} from "./reducers/usersReducers";
 import { combineReducers } from "redux";
 
 let rootReducer = combineReducers({

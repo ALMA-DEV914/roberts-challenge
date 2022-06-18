@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 
-const User = ({ userData }) => {
+const User = ({userData}) => {
   const {
     name: { title, first, last },
     email,
