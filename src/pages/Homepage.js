@@ -3,9 +3,8 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import hero from "../assets/giphy.gif";
 
-
 const Homepage = () => {
-  return (
+   return (
     <>
       <div className="container bg-primary p-4 my-3 text-white home">
         <h1>Welcome to the Random Users Generator</h1>

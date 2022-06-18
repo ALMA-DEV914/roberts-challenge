@@ -1,16 +1,16 @@
 //import React
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "./Login";
 
 //function to create Nav components
 const Nav = () => {
+
   //render the page section
   return(
     <div className="container">
       <nav className="navbar navbar-expand-sm d-flex justify-content-between">
         <div className="d-inline-flex  bg-secondary text-white">
-          <Link to="/">
+          <Link to="/homepage">
             <button className="p-1 bg-info navActive m-1">Home</button>
           </Link>
 
@@ -23,11 +23,10 @@ const Nav = () => {
           </Link>
           </div>
           <div className="bg-secondary">
-          <Link to='/login'>
-          <button className="p-1 m-1   navActive">LOGIN</button>
+          <Link to='/logout'>
+          <button className="p-1 m-1  navActive">LOGOUT</button>
           </Link>
-
-        </div>
+          </div>
       </nav>
     </div>
   );
