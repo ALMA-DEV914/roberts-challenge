@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteMember } from "../redux/memberSlice";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import {IoMdReturnLeft} from "react-icons/io"
+import {IoMdReturnLeft} from "react-icons/io";
 
 const MemberList = () => {
   const dispatch = useDispatch();
@@ -36,13 +36,14 @@ const MemberList = () => {
     ));
 
   return (
+
     <div className="container text-white mt-4 text-center">
       <h1>WELCOME TO THE RANDOM USERS GENERATOR</h1>
       <Link to="/add-member">
         <button className="text-dark ">JOIN THE MEMBERS</button>
       </Link>
       <Link to="/homepage"><button className="btns"><IoMdReturnLeft/> return home</button></Link>
-
+    
       <div className="container">
         <div className="row">
           <div className="col">
