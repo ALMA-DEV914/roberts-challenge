@@ -78,13 +78,19 @@ button{
 .btns{
     float: right;
 }
-.login{
-    margin-top: 10%;
-}
+
 form{
     border: 1px solid white;
+    margin-top: 10%;
 }
 input{
     width: 100%;
     padding: 8px;
+}
+.row{
+    margin-top: 5%;
+    
+}
+.col{
+    grid-template-columns: repeat(2, 1fr); 
 }

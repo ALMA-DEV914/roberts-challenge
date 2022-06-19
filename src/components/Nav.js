@@ -23,6 +23,7 @@ const Nav = () => {
           </Link>
           </div>
           <div className="bg-secondary">
+          <Link to='/'><button className="p1-1 m-1 navActive">MEMBERS</button></Link>
           <Link to='/logout'>
           <button className="p-1 m-1  navActive">LOGOUT</button>
           </Link>

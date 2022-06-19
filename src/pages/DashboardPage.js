@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ExtraDetails from "../components/ExtraDetails";
 import Address from "../components/UserAddress";
 import Nav from "../components/Nav";
+import { FaBackward, FaForward} from "react-icons/fa";
 
 const PER_PAGE = 1;
 
@@ -115,8 +116,8 @@ const Dashboard = () => {
           </div>
 
           <ReactPaginate
-            previousLabel={"< Previous"}
-            nextLabel={"Next >"}
+            previousLabel={<FaBackward/>}
+            nextLabel={<FaForward/>}
             pageCount={pageCount}
             onPageChange={handlePageClick}
             containerClassName={"pagination"}
