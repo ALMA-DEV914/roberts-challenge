@@ -2,9 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import membersReducer from './memberSlice';
 
 
- export const store = configureStore({
+ export const store1 = configureStore({
   reducer: {
-    members:membersReducer
+    members: membersReducer,
+    
   },
 })
 

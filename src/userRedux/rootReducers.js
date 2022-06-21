@@ -1,9 +1,9 @@
-import { userReducer, USER_KEY } from "./usersReducer";
+import { userReducer} from "./usersReducer";
 import { combineReducers } from "redux";
 
 
-let rootReducer = combineReducers({
-    [USER_KEY]: userReducer
+const rootReducer = combineReducers({
+    users: userReducer
 })
 
 export {rootReducer}

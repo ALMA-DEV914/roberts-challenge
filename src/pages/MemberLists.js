@@ -38,8 +38,7 @@ const MemberList = () => {
   return (
 
     <div className="container text-white mt-4 text-center">
-      <h1>WELCOME TO THE RANDOM USERS GENERATOR</h1>
-      <Link to="/add-member">
+      <Link to="/">
         <button className="text-dark ">JOIN THE MEMBERS</button>
       </Link>
       <Link to="/homepage"><button className="btns"><IoMdReturnLeft/> return home</button></Link>

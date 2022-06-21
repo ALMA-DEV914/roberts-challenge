@@ -11,16 +11,16 @@ const memberSlice = createSlice({
     },
     editMember: (state, action) => {
       const { id, username, email } = action.payload;
-      const existingUser = state.find(member => member.id === id);
-      if(existingUser) {
-        existingUser.username = username;
-        existingUser.email = email;
+      const existingMember = state.find(member => member.id === id);
+      if(existingMember) {
+        existingMember.username = username;
+        existingMember.email = email;
       }
     },
     deleteMember: (state, action) => {
       const { id } = action.payload;
-      const existingUser = state.find(member => member.id === id);
-      if(existingUser) {
+      const existingMember = state.find(member => member.id === id);
+      if(existingMember) {
         return state.filter(member => member.id !== id);
       }
     }

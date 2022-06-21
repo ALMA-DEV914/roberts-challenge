@@ -3,11 +3,13 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
+const initialState = {};
 
-let allMiddlewares = [thunk]
-let store = createStore(rootReducer, composeWithDevTools(
-    applyMiddleware(...allMiddlewares)
+const allMiddlewares = [thunk]
+const store = createStore(
+    rootReducer, 
+    initialState, 
+    composeWithDevTools(applyMiddleware(...allMiddlewares)
 
 ))
-
-export {store}
+export  {store}

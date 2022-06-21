@@ -6,16 +6,15 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./userRedux/store";
 import { BrowserRouter } from "react-router-dom";
+//import { store1 } from "./redux/store1";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-  <Provider store={store}>
-    <App />
-    </Provider>
+     <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
-
-

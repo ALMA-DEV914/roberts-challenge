@@ -10,21 +10,25 @@ const AddMember = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState({
     username: '',
-    email: ''
+    email: '',
+    password: ''
   });
 
-  const handleAddMember = () => {
+  const handleAddMember = (e) => {
+    e.preventDefault();
     setValues({ username: '', email: '' });
     dispatch(addMember({
       id: uuidv4(),
       username: values.username,
-      email: values.email
+      email: values.email,
+      password: values.password
     }));
     navigate('/homepage');
   }
 
   return (
-    <div className="container mt-4  mx-auto">
+    <div className="container mt-4  mx-auto text-white">
+      <h1>WELCOME TO THE RANDOM USERS GENERATOR</h1>
       <form className="login-form col-lg-6 mx-auto text-left p-3">
         <h3 className="text-white">Registered</h3>
       <TextField
