@@ -10,10 +10,10 @@ import {FaForward } from "react-icons/fa";
 
 const UserProfile = () => {
   // view data from store
-  const users = useSelector((state) => state.users);
+const users = useSelector((state) => state.users);
 
   // initialize dispatch
-  let dispatch = useDispatch();
+ const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadData());
@@ -38,10 +38,10 @@ const UserProfile = () => {
           <React.Fragment>
             {users.data.length === 0 ? null : (
               <React.Fragment>
-                {users.data.results.map((user, index) => {
+                {users.data.results.map((user) => {
                   return (
                     <>
-                      <div className="container" key={index}>
+                      <div className="container">
                         <div className="d-flex">
                           <div className="col-sm-7 text-left">
                             <div className="text-center">

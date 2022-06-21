@@ -10,7 +10,7 @@ let initialState = {
 }
 
 export const userReducer = (state = initialState, action) =>{
-    let {type, payload} = action
+    const {type, payload} = action
     switch(type){
         case LOAD_DATA_REQUEST:
             return{

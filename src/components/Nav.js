@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 
 //function to create Nav components
 const Nav = () => {
-
-  //render the page section
+//render the page section
   return(
     <div className="container">
       <nav className="navbar navbar-expand-sm d-flex justify-content-between">

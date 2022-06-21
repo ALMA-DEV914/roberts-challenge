@@ -7,7 +7,6 @@ import Address from "../components/UserAddress";
 import Nav from "../components/Nav";
 import { FaBackward, FaForward } from "react-icons/fa";
 
-
 const PER_PAGE = 1;
 
 const Dashboard = () => {
@@ -45,9 +44,10 @@ const Dashboard = () => {
   }
 
   const offset = currentPage * PER_PAGE;
+
   const currentPageUsers = users
     .slice(offset, offset + PER_PAGE)
-    .map((user, index) => <User key={index} userData={user} />);
+    .map((user, index) => <User key={index} userData={user}/>);
 
   const pageCount = Math.ceil(users.length / PER_PAGE);
 
