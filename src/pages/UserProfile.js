@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadData } from "../userRedux/usersAction";
+import { loadData} from "../userRedux/usersAction";
 import moment from "moment";
 import Nav from "../components/Nav";
 import User from "../components/UserLists";
@@ -10,8 +10,7 @@ import {FaForward } from "react-icons/fa";
 
 const UserProfile = () => {
   // view data from store
-const users = useSelector((state) => state.users);
-
+const users = useSelector(state => state.users);
   // initialize dispatch
  const dispatch = useDispatch();
 
@@ -20,7 +19,7 @@ const users = useSelector((state) => state.users);
   }, []);
 
   function handleClick() {
-    dispatch(loadData());
+    dispatch(loadData())
   }
 
   console.log("Users", users);
