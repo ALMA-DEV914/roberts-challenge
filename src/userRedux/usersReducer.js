@@ -2,6 +2,7 @@ import { LOAD_DATA_REQUEST,
     LOAD_DATA_SUCCESS,
     LOAD_DATA_FAILURE  } from "./actionTypes"
 
+export const USER_KEY = 'userStore';
 
 let initialState = {
     data:[],
@@ -21,7 +22,8 @@ export const userReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 loading:false,
-                data: payload
+                data: payload,
+                
             }
             case LOAD_DATA_FAILURE:
             return{

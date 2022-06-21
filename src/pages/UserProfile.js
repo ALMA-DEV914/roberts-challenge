@@ -1,42 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadData} from "../userRedux/usersAction";
+import { loadData } from "../userRedux/usersAction";
+import { USER_KEY } from "../userRedux/usersReducer";
 import moment from "moment";
 import Nav from "../components/Nav";
 import User from "../components/UserLists";
 import Address from "../components/UserAddress";
 import Footer from "../components/Footer";
-import {FaForward } from "react-icons/fa";
+import { FaForward } from "react-icons/fa";
+import Spinner from "../components/Spinner";
 
 const UserProfile = () => {
   // view data from store
-const users = useSelector(state => state.users);
+  const users = useSelector((state) => {
+    return state[USER_KEY];
+  });
   // initialize dispatch
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadData());
   }, []);
 
   function handleClick() {
-    dispatch(loadData())
+    dispatch(loadData());
   }
 
   console.log("Users", users);
 
   return (
-    <React.Fragment>
+    <>
       <div className="container text-white mt-4">
         <h1 className="font-weight-bold">RANDOM USER PROFILE </h1>
         <Nav />
       </div>
       <div className="container mt-4 text-white">
         {users.loading === true ? (
-          <p>Loading...</p>
+          <Spinner />
         ) : (
-          <React.Fragment>
+          <>
             {users.data.length === 0 ? null : (
-              <React.Fragment>
+              <>
                 {users.data.results.map((user) => {
                   return (
                     <>
@@ -55,6 +59,7 @@ const users = useSelector(state => state.users);
                               src={user.picture.large}
                               alt="user-profile"
                             />
+
                             <button className="btns" onClick={handleClick}>
                               <FaForward />
                             </button>
@@ -106,15 +111,15 @@ const users = useSelector(state => state.users);
                     </>
                   );
                 })}
-              </React.Fragment>
+              </>
             )}
-          </React.Fragment>
+          </>
         )}
       </div>
       <br></br>
       <br></br>
       <Footer />
-    </React.Fragment>
+    </>
   );
 };
 

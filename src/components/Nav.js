@@ -22,7 +22,7 @@ const Nav = () => {
           </Link>
           </div>
           <div className="bg-secondary">
-       {/*<Link to='/add-member'>
+      {/*<Link to='/add-member'>
           <button className="p-1 m-1  navActive">MEMBERS</button>
   </Link>*/}
           <Link to='/logout'>
