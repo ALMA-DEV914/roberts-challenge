@@ -34,7 +34,7 @@ const User = ({userData}) => {
               alt="user-profile"
             />
           </div>
-          <div className="col-sm-8 text-white bg-dark">
+          <div className="col-sm-6 text-white bg-dark">
             <div className="card-body">
               <h2 className="text-warning">
                 {title}. {first} {last}

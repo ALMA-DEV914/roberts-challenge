@@ -35,13 +35,13 @@ body{
 }
 .pagination{
    margin: 0 auto;
-   background: bisque;
+   color: rgb(196, 155, 43);
    justify-content: center;
    padding: 8px;
+   width: 30%;
    
 }
 .pagination_link{
-    background: rgb(11, 96, 124);
     color: white;
     padding: 8px 24px;
     border-radius: 5px;
@@ -52,8 +52,9 @@ body{
     background: rgb(42, 40, 40);
 }
 .home-hero{
-    margin-top: 5%;
+    margin-top: 5% auto;
 }
+
 .p-2{
     float: right;
 }

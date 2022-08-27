@@ -5,11 +5,11 @@ import {
 } from "./actionTypes.js";
 import axios from "axios";
 
-export const loadData = (pageNumber = 1) => {
+export const loadData = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: LOAD_DATA_REQUEST });
-      const dataURL = `https://randomuser.me/api/?results=${pageNumber}`;
+      const dataURL = 'https://randomuser.me/api/';
       const {data} = await axios.get(dataURL);
       dispatch({ type: LOAD_DATA_SUCCESS, payload: data });
       
